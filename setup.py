@@ -15,7 +15,7 @@ setup(
     license='BSD',
     description='Live preview your page changes as you make them.',
     long_description=README,
-    url='https://learnwagtail.com/',
+    url='https://github.com/KalobTaulien/wagtail-livepreview',
     author='Kalob Taulien',
     author_email='kalob@learnwagtail.com',
     classifiers=[
