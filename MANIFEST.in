@@ -1,0 +1,8 @@
+include LICENSE *.rst *.txt *.md
+recursive-include livepreview/static *
+recursive-include livepreview/templates *
+recursive-include livepreview/migrations *
+recursive-include livepreview/templatetags *
+recursive-include docs *
+global-exclude __pycache__
+global-exclude *.py[co]

@@ -1,0 +1,19 @@
+{% extends "wagtailadmin/pages/edit.html" %}
+{% load i18n l10n %}
+
+{% block extra_footer_actions %}
+    {% if not page.LIVEPREVIEW_DISABLED %}
+        {# Live preview is enabled #}
+        <a class="button icon icon-view" target="_livepreview" href="{% url 'live_preview' page.id %}">
+            {% trans 'Live Preview' %}
+        </a>
+
+        <a href="#" type="button" class="button action-autosave js-auto-save livepreview-autosave-button" data-action="{% url 'live_preview' page.id %}" data-404-wording="{% trans 'Missing page' %}" data-permission-denied-wording="{% trans 'Permission denied' %}" data-error-wording="{% trans 'Error' %}"data-saved-wording="{% trans 'Saved' %}" data-saving-wording="{% trans 'Saving...' %}">
+            {% trans 'Autosave' %}
+        </a>
+    {% else %}
+        {# Live preview is disabled. Add the regular Preview button #}
+        {% trans 'Preview' as preview_label %}
+        {% include "wagtailadmin/pages/_preview_button_on_edit.html" with label=preview_label icon=1 %}
+    {% endif %}
+{% endblock extra_footer_actions %}

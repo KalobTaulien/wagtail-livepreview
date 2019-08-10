@@ -1,0 +1,14 @@
+{% load static livepreview_tags %}
+
+{% if request.livepreview and not request.GET.from_revision %}
+<div class="js-livepreview-script" style='display: none;'>
+    <script src="{% static 'livepreview/js/jquery-3.4.1.min.js' %}"></script>
+    <script>
+        var livePreviewSettings = {
+        	'url': '{% url 'live_preview' page.id %}',
+            'interval_time': {% livepreview_interval_time %}
+        };
+    </script>
+    <script src="{% static 'livepreview/js/livepreview_fe.js' %}"></script>
+</div>
+{% endif %}

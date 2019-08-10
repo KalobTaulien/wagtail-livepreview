@@ -1,0 +1,30 @@
+{% load wagtailadmin_tags static %}
+{% with self.instance.LIVEPREVIEW_DISABLED as livepreview_disabled %}
+
+    <ul class="tab-nav merged" role="tablist">
+        {% for child in self.children %}
+            <li class="{{ child.classes|join:" " }} {% if forloop.first %}active{% endif %}" role="tab" aria-controls="tab-{{ child.heading|cautious_slugify }}">
+                <a href="#tab-{{ child.heading|cautious_slugify }}" class="{% if forloop.first %}active{% endif %}">{{ child.heading }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    {% if not livepreview_disabled and self.instance.pk  %}
+        <a href="#" class="js-toggle-preview livepreview-toggle icon icon-view" title="Toggle Live Preview"></a>
+    {% endif %}
+    <div class="tab-content{% if not livepreview_disabled and self.instance.pk  %} js-preview-open livepreview{% endif %}">
+        <div{% if not livepreview_disabled and self.instance.pk  %} id="livepreview-content"{% endif %}>
+            {% for child in self.children %}
+                <section id="tab-{{ child.heading|cautious_slugify }}" class="{{ child.classes|join:" " }} {% if forloop.first %}active{% endif %}" role="tabpanel" aria-labelledby="tab-label-{{ child.heading|cautious_slugify }}">
+                    {{ child.render_as_object }}
+                </section>
+            {% endfor %}
+        </div>
+        {% if not livepreview_disabled and self.instance.pk %}
+            <div class="livepreview-panel js-livepreview-panel" id="livepreview-panel" style='background-image:url("{% static 'livepreview/images/loader.gif' %}");'>
+                <iframe src="{% url 'live_preview' self.instance.pk %}?from_revision=1" style='width: 100%; height: 100%;' frameborder="0" class="js-livepreview-iframe">
+                </iframe>
+            </div>
+        {% endif %}
+    </div>
+
+{% endwith %}

@@ -1,0 +1,82 @@
+.livepreview {
+    display: flex;
+    flex-basis: 50%;
+}
+
+.livepreview.livepreview--closed {
+    display: block;
+    flex-basis: initial;
+}
+
+.livepreview.livepreview--closed #livepreview-content {
+    width: 100% !important;
+}
+
+.livepreview-panel {
+    flex-basis: 50%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.livepreview--closed .livepreview-panel {
+    display: none;
+}
+
+.livepreview-toggle {
+    position: fixed;
+    right: 0;
+    margin-top: 10px;
+    background-color: #333;
+    color: #fff !important;
+    padding: 10px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+/**
+ * Wagtail admin overwrites
+ */
+    /**
+     * Hide the regular preview button.
+     * It can't be removed from the template easily, so we're just hiding it.
+     */
+    li.preview {
+        display: none;
+    }
+
+/**
+ * From Split.js
+ */
+.gutter.gutter-horizontal {
+    cursor: ew-resize;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    width: 5px !important;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.livepreview--force100w {
+    width: 100% !important;
+}
+
+@media(max-width: 800px) {
+    .gutter.gutter-horizontal,
+    .livepreview .livepreview-panel,
+    .livepreview-toggle { display: none; }
+    .livepreview {
+        display: block;
+        max-width: 100%;
+    }
+    .button + .livepreview-autosave-button { margin-left: initial; }
+
+    #livepreview-content {
+        width: 100% !important;
+    }
+}
+
+
