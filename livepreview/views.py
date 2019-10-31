@@ -120,12 +120,13 @@ class LivePreviewOnEdit(View):
 
         # Always look for the file first.
         # If there's a LivePreview file, serve that. This will reduce the number of DB queries hitting the server
-        file_name = self.get_live_preview_file_name(page_id, request.user.id)
         use_file_rendering = getattr(settings, "LIVEPREVIEW_USE_FILE_RENDERING", True)
-        if use_file_rendering and os.path.isfile(file_name):
-            with open(file_name, 'r') as file:
-                page_content = file.read()
-                return HttpResponse(page_content)
+        if use_file_rendering:
+            file_name = self.get_live_preview_file_name(page_id, request.user.id)
+            if os.path.isfile(file_name):
+                with open(file_name, 'r') as file:
+                    page_content = file.read()
+                    return HttpResponse(page_content)
 
         # Attempt to get the page.
         try:
