@@ -111,6 +111,11 @@ Feel free to open a PR. I'm not overly picky about how things are done as long a
 
 The JavaScript can use _a lot_ of improvements (small and large) so that'd be a great place to start.
 
+## Contributors 
+
+- [x] Kalob Taulien 
+- [x] [LunatikCoder](https://github.com/LunatikCoder)
+
 ## @todos
 If anyone wants to get involved and pick off a few of these tasks, that'd be awesome. But no pressure.
  - [ ] Implement proper http protocol responses
