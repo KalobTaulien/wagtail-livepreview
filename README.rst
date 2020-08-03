@@ -110,6 +110,9 @@ There a few global settings you can apply::
 	# If True, LIVEPREVIEW_TIMEOUT can be as low as 250ms.
 	# If False, the minimum LIVEPREVIEW_TIMEOUT is 1000ms.
 	LIVEPREVIEW_USE_FILE_RENDERING = True
+	
+	# Disable LIVEPREVIEW globally
+	LIVEPREVIEW_DISABLED = True
 
 
 ==============
