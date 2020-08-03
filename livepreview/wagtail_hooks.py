@@ -91,3 +91,10 @@ def before_edit_page(request, page_class):
 # def before_live_preview_save(request, page):
 #     """Sample live preview hooks."""
 #     print(page.id)
+
+
+@hooks.register('before_edit_page')
+def before_edit_page(request, page_class):
+    # Disable Live Preview Globally
+    if getattr(settings, 'LIVEPREVIEW_DISABLED', False):
+        page_class.LIVEPREVIEW_DISABLED = True
