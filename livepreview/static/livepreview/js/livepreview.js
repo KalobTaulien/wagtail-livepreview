@@ -102,7 +102,6 @@ $(document).ready(function() {
           if(!contentHasChanged) {
             var $iframe = $("iframe.js-livepreview-iframe:first")
             var newIframeUrl = $iframe.attr('src').split("?from_revision")
-            console.log("LOADING", newIframeUrl)
             $iframe.attr('src', newIframeUrl[0] + '?from_live_preview=1')
             contentHasChanged = true;
           }
