@@ -20,7 +20,7 @@ $(document).ready(function() {
         var bodyIsVisible = $("body").is(":visible")
         // If the body is not visible, don't try to update the dom.
         if(!bodyIsVisible) {
-        	return false;
+        	return;
         }
 
         // Reload the page after 600 ajax requests
