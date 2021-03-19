@@ -7,7 +7,7 @@ django-extensions==2.2.1
 django-modelcluster==4.4
 django-taggit==0.24.0
 django-treebeard==4.3
-djangorestframework==3.10.2
+djangorestframework==3.11.2
 draftjs-exporter==2.1.6
 html5lib==1.0.1
 idna==2.8
