@@ -1,6 +1,10 @@
 # Wagtail Live Preview
 > Wagtail Live Preview lets you view your page changes as you make them in the Wagtail Admin.
 
+### :warning::warning::warning:
+> :warning: **This project is not supported anymore**: Wagtail CMS 5+ comes with built-in live-preview. It is recommended to use Wagtail's naturally supported features rather than 3rd party packages. 
+### :warning::warning::warning:
+
 ![](docs/LivePreview.gif)
 
 **Using React or Vue?** This won't work for you, nor was it designed to. This Live Preview package is designed for simple Wagtail websites.
