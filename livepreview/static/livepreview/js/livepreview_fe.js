@@ -4,7 +4,7 @@ $(document).ready(function() {
     function stripScripts(s) {
         var div = document.createElement('div');
         div.innerHTML = s;
-        var scripts = div.getElementsByTagName('script');
+        var scripts = div.querySelectorAll('.js-livepreview-script script');
         var i = scripts.length;
         while (i--) {
             scripts[i].parentNode.removeChild(scripts[i]);
@@ -38,10 +38,6 @@ $(document).ready(function() {
             success: function (data, textStatus, jqXHR) {
                 if(window.currentDom !== data) {
                     window.currentDom = data
-                    // Select the entire BODY
-                    var $body = $("body")
-                    // Remove everything EXCEPT <script> tags.
-                    $body.find("*:not(script)").remove()
                     // Strip the ajax'd template data: no <scripts> allowed
                     data = stripScripts(data)
                     // Start a new DOMParser with the ajax'd template
@@ -50,10 +46,8 @@ $(document).ready(function() {
                     var htmlDoc = parser.parseFromString(data, 'text/html');
                     // Get only the <body> from the ajax'd template
                     var body = htmlDoc.querySelector('body')
-                    // Get just the innerHTML from the ajax'd templates' body
-                    var html = body.innerHTML
                     // Replace our DOM with the Ajax'd DOM.
-                    $body.html(html)
+                    $("body").html(body.innerHTML)
                     // Update the page title now.
                     var title = htmlDoc.querySelector('title')
                     $("title").html(title.innerHTML)
