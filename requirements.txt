@@ -2,7 +2,7 @@ beautifulsoup4==4.6.0
 certifi==2019.6.16
 chardet==3.0.4
 Django==2.2.4
-django-debug-toolbar==2.0
+django-debug-toolbar==2.2.1
 django-extensions==2.2.1
 django-modelcluster==4.4
 django-taggit==0.24.0
